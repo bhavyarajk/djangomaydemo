@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>LOGIN</title>
+    {% endblock %}
+{% block content %}
+<center>
+    <div class="container mt-5 p-3" style="margin-bottom:100px;">
+<h2>Login here......</h2>
+    <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+  <label  class="form-label">Username</label>
+  <input type="text" class="form-control" name="u" placeholder="Enter username">
+</div>
+ <div class="mb-3">
+  <label  class="form-label">Password</label>
+  <input type="password" class="form-control" name="p" placeholder="Enter password">
+</div>
+        <div class="mb-3">
+
+  <input type="submit" class="form-control">
+</div>
+</form>
+    {% if messages %}
+<ul class="messages text-danger fs-4 text-capitalize">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    </div>
+{% endblock %}
+</body>
+</html>
